@@ -1,12 +1,13 @@
-### Shell Sort - Desordenada ###
 
-# Función que desordena un arreglo usando una variación de Shell Sort
-def shell_sort_reverse(arr):
-    # Obtiene la longitud del arreglo
+### Shell Sort - Desordenada  ###
+
+# Función que implementa el algoritmo de ordenamiento Shell Sort ( Los elementos desordenados aleatoriamente diferentes lugares )
+
+def desordenar_shell_sort(arr):
+
     n = len(arr)
-    # Calcula el gap inicial como la mitad del tamaño del arreglo
-    gap = n // 2
-
+    gap = n // 2  # Calcula el gap inicial como la mitad del tamaño del arreglo
+    
     # Mientras el gap sea mayor que 0
     while gap > 0:
         # Recorre el arreglo desde la posición gap hasta el final
@@ -14,15 +15,14 @@ def shell_sort_reverse(arr):
             # Guarda el elemento actual en una variable temporal
             temp = arr[i]
             j = i
-            # En lugar de ordenar, intercambiamos de manera opuesta
-            while j >= gap and arr[j - gap] < temp:
-                # Mueve el elemento menor hacia adelante (desordena)
-                arr[j] = arr[j - gap]
-                # Retrocede gap posiciones
+            
+            # Intercambia los elementos de manera aleatoria y no predecible
+            while j >= gap and arr[j - gap] != temp:
+                # Realiza el intercambio entre los elementos
+                arr[j], arr[j - gap] = arr[j - gap], arr[j]
                 j -= gap
-            # Coloca el elemento temporal en su posición incorrecta
-            arr[j] = temp
-        # Reduce el gap a la mitad
+
+        # Reduce el gap a la mitad en cada iteración
         gap //= 2
-    # Retorna el arreglo desordenado
+    
     return arr
