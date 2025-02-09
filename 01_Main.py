@@ -2,22 +2,15 @@ from PyQt5 import QtWidgets, uic
 
 class ShellSortApp(QtWidgets.QMainWindow):
     def __init__(self):
-        # Inicializa la ventana principal heredando de QMainWindow
         super().__init__()
-        # Carga el archivo de interfaz de usuario diseñado en Qt Designer
-        uic.loadUi("interface.ui", self)  
+        uic.loadUi("interface.ui", self)  # Cargar la UI de Qt Designer
 
-        # Conecta los botones de la interfaz con sus respectivas funciones
-        # Botón para generar las tablas con el tamaño especificado
+        # Conectar botones a funciones
         self.btnGenerate.clicked.connect(self.generar_tablas)
-        # Botón para ordenar los datos usando Shell Sort
         self.btnSort.clicked.connect(self.ordenar)
-        # Botón para desordenar los datos
         self.btnShuffle.clicked.connect(self.desordenar)
-        # Botón para borrar todos los datos de las tablas
-        self.btnClear.clicked.connect(self.borrar_datos)
-        # Botón para reiniciar completamente las tablas (eliminar filas y columnas)
-        self.btnReset.clicked.connect(self.reiniciar_tablas)
+        self.btnClear.clicked.connect(self.borrar_datos)  # Conectar el botón para borrar datos
+        self.btnReset.clicked.connect(self.reiniciar_tablas)  # Conectar el nuevo botón para reiniciar
 
     def generar_tablas(self):
         """Genera dos tablas con el número de filas y columnas seleccionadas."""
